@@ -19,7 +19,7 @@ Install the [JS injector](https://www.drupal.org/project/js_injector) module.
 * Open up the JS injector page (/admin/config/development/js-injector).
 * Click Add.
 * Enter a name and a description.
-* Paste the contents of [cssInject.js](./blob/master/cssInject.js).
+* Paste the contents of [cssInject.js](./cssInject.js).
 * Select "The listed pages only", and enter:
 ```
 node/*/edit
