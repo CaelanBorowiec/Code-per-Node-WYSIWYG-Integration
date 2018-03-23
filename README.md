@@ -1,6 +1,7 @@
 # Drupal Code per Node integration with CKEditor
 
-This is a code snippet that will apply CSS rules saved in the [Code per Node](https://www.drupal.org/project/cpn) module with the WYSIWYG editor, [CKEditor](https://www.drupal.org/project/ckeditor).
+This is a JavaScript snippet that will apply CSS rules saved in the [Code per Node](https://www.drupal.org/project/cpn) module with the WYSIWYG editor, [CKEditor](https://www.drupal.org/project/ckeditor).
+
 With minor modification, this can be adapted to work with the [Wysiwyg](https://www.drupal.org/project/wysiwyg) module as well.
 
 ## Important Note
@@ -28,3 +29,6 @@ node/*/edit
 
 ## Authors
 * **Caelan Borowiec** - *Initial work* - [CaelanBorowiec](https://github.com/CaelanBorowiec/)
+
+## Addendum
+A better solution for this problem would be a patch to the CPN module, or perhaps a stand-alone module.  For expediency I opted for the less in-depth method of JavaScript DOM manipulation.
