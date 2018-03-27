@@ -1,33 +1,13 @@
-// Return the page NID using JS
-function getCurrentNodeId() {
-  var $body = $('body.page-node');
-  if ( ! $body.length )
-    return false;
-  var bodyClasses = $body.attr('class').split(/\s+/);
-  for ( i in bodyClasses ) {
-    var c = bodyClasses[i];
-    if ( c.length > 10 && c.substring(0, 10) === "page-node-" )
-      return parseInt(c.substring(10), 10);
-  }
-  return false;
-}
-
-
 function injectCPNCSS(){
-  //Check if CPN has saved a cached CSS file for this node.
-  // Note: this assumes the default storage location.
-  $.get("/sites/default/files/cpn/"+getCurrentNodeId()+".css").done(function()
+  var rules = $('textarea#edit-cpn-css').val();  // read out of the current CSS field
+  rules = "<style>" + rules + "</style>"; // Add style tags
+  //console.log(rules);
+
+  $("iframe.cke_wysiwyg_frame").each(function()  // The 'cke_wysiwyg_frame' class can probably be replaced to support other editors
   {
-      $("iframe.cke_wysiwyg_frame").each(function()  // The 'cke_wysiwyg_frame' class can probably be replaced to support other editors
-      {
-        // Attach the stylesheet link to the editor iframe.
-        $head = $( this ).contents().find("head");
-        $head.append('<link rel="stylesheet" href="/sites/default/files/cpn/'+getCurrentNodeId()+'.css" type="text/css" />');
-      });
-  }).fail(function()
-  {
-      return;
-  })
+    $head = $("iframe.cke_wysiwyg_frame").contents().find("head");
+    $head.append(rules);
+  });
 };
 
 $(document).ready(function() {
